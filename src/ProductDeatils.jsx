@@ -18,22 +18,48 @@ export default function ProductDeatils() {
 
                 setsingleData(response.data)
                 setImages(response.data.images)
-                console.log(response.data.images)
 
             })
     }, [currentLocation])
 
-    setTimeout(() => {
-        console.log(Images);
-    }, 1000);
+
     return (
         <div className="container-fluid py-5 bg-body-secondary">
             <div className='container'>
                 <Link to={'/'} className='btn btn-danger'> back to Home</Link>
                 {(singleData !== undefined || singleData !== null || singleData !== "") ?
                     <div className='row pt-3'>
-                        <div className="col-lg-6">
+                        {/* <div className="col-lg-6">
                             <img src="https://i.dummyjson.com/data/products/1/thumbnail.jpg" alt="" className='img-fluid' />
+                        </div> */}
+                        <div className="col-lg-6">
+                            <div id="carouselExample" className="carousel slide">
+                                <div className="carousel-inner">
+                                    <div className="carousel-item active">
+                                        <img src={Images[0]} className="d-block w-100 img-fluid" alt="..." />
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src={Images[1]} className="d-block w-100 img-fluid" alt="..." />
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src={Images[2]} className="d-block w-100 img-fluid" alt="..." />
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src={Images[3]} className="d-block w-100 img-fluid" alt="..." />
+                                    </div>
+                                    <div className="carousel-item">
+                                        <img src={Images[4]} className="d-block w-100 img-fluid" alt="..." />
+                                    </div>
+                                </div>
+                                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span className="visually-hidden">Previous</span>
+                                </button>
+                                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span className="visually-hidden">Next</span>
+                                </button>
+                            </div>
                         </div>
                         <div className="col-lg-6">
                             <h4>{singleData.title}</h4>
