@@ -1,13 +1,45 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.bundle"
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ProductDeatils from './ProductDeatils';
+import Product from './product';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <App />
+    ),
+  },
+  {
+    path: "/about",
+    element: <div>About</div>,
+  },
+  {
+    path: "/product",
+    element: <Product />,
+  },
+  {
+    path: "/ProductDeatils/:id",
+    element: <ProductDeatils />,
+  },
+
+]);
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
